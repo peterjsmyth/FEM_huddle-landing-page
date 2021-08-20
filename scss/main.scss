@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap');
+
+// -----  Variables  -----
+
+$fh: 'Poppins', sans-serif;
+$fb: 'Open Sans', sans-serif;
+$clr-violet: hsl(257, 40%, 49%);
+$clr-soft-magenta: hsl(300, 69%, 71%);
+$clr-light: hsl(0,100%,100%);
+
+// -----  Mixins  -----
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+}
+
+@mixin flex-column-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+// -----  Debug helpers  -----
+
+.box-red {
+    border: 1px red solid;
+  }
+  
+  .box-blue {
+    border: 1px blue solid;
+  }
+  
+  .box-green {
+    border: 1px green solid;
+  }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 62.5%;
+    // overflow-x: hidden;
+}
+
+body {
+    background-color: #888;
+    font-family: $fb;
+    font-size: 1.6rem;
+    @include flex-column-center();
+    align-items: center;
+    background-color: $clr-violet;
+    background-image: url(/images/bg-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    min-width: 375px;
+    width: 90%;
+    @include flex-column-center();
+}
+
+.header {
+    &__logo {
+        max-width: 150px;
+        margin: 2rem 0;;
+    }
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    &__image {
+        width: 100%;
+        margin-top: 4rem;
+        align-items: flex-start
+    }
+    &__content {
+        @include flex-column-center();
+        align-items: center;
+        &__title {
+            font-family: $fh;
+            font-weight: 600;
+            font-size: 2.5rem;
+            color: $clr-light;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        &__text {
+            font-weight: 400;
+            color: $clr-light;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        &__btn {
+            margin-top: 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.5rem 6rem;
+            background-color: $clr-light;
+            color: $clr-violet;
+            box-shadow: 3px 3px 10px hsla(0, 0%, 0%, 0.35);
+            &:hover,&:focus {
+                background-color: $clr-soft-magenta;
+                outline: none;
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    &__icon {
+        color: $clr-light;
+        height: 20px;
+        width: 20px;
+        font-weight: 200;
+        padding: 0.4rem;
+        position: relative;
+        line-height: 1.4;
+        vertical-align: middle;
+        display: inline-block;
+        text-align: center;
+        border: 2px solid $clr-light;
+        border-radius: 50%;
+        margin: 0 0.5rem 5rem 0.5rem;
+        &:hover, &:focus {
+            color: $clr-soft-magenta;
+            border: 2px solid $clr-soft-magenta;
+        }
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    .main {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        &__image {
+            width: 50%;
+        }
+        &__content {
+            width: 50%;
+            max-width: 500px;
+            padding-left: 5rem;
+            align-items: flex-start;
+            &__title {
+                text-align: left;
+            }
+            &__text {
+                text-align: left;
+            }
+        }
+    }
+    .footer {
+        justify-content: flex-end;
+    }
+}
+
+
+
+
+
